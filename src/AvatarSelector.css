@@ -1,0 +1,36 @@
+.avatar-selector {
+  /*---- 280px width, with 14px between each avatar can't be achieved
+  withoug widening the popover. I though width was important so I opted 
+  to split the difference at 8px giving all padding and margin
+  8px of space to nearest element or container wall ----*/
+  width: 280px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+button.current-avatar-btn {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: transparent;
+  padding:0; 
+  margin: 0 auto;
+}
+
+button.current-avatar-btn:hover {
+   border: 1px solid rgb(155, 160, 163);
+}
+
+button.current-avatar-btn:focus {
+    outline: none;
+    border: 1px solid rgb(155, 160, 163);
+}
+
+button.current-avatar-btn img {
+  height:100%;
+  width:100%;
+  border-radius: 50%;
+  border:none;
+}

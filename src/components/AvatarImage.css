@@ -1,0 +1,21 @@
+.avatar-image {
+	height:55px;
+	width:55px;
+	padding:0;
+	margin:0;
+	border:none;
+	border-radius:27.5px;
+	cursor: pointer;
+}
+
+div.selected {
+	width:60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.deselect {
+	width: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
