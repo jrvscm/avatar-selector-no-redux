@@ -17,6 +17,7 @@ describe('<AvatarSelector />', () => {
         loading: false,
         firstLoad: true
      }
+
 	
 	it('Renders without crashing', () => {
 		const wrapper = shallow(
@@ -28,7 +29,7 @@ describe('<AvatarSelector />', () => {
 		 		firstLoad={state.firstLoad} />)
 	});
 
-	it('should hidden to false and set deselect to selected', () => {
+	it('should hidden to false and set selected to deselect', () => {
 		const wrapper = shallow(
 			<AvatarSelector
 		 		loading={state.loading}
@@ -38,5 +39,41 @@ describe('<AvatarSelector />', () => {
 		 		firstLoad={state.firstLoad} />)
 		wrapper.find('.current-avatar-btn').simulate('click');
 		expect(wrapper.find('div.deselect').length).toEqual(1);
+	});
+
+	it('should show the ul and find an li overlay on click', () => {
+		const wrapper = shallow(
+			<AvatarSelector
+		 		loading={state.loading}
+		 		currentAvatar={state.currentAvatar}
+		 		avatars={state.avatars}
+		 		hidden={state.hidden}
+		 		firstLoad={state.firstLoad} />)
+		wrapper.find('.current-avatar-btn').simulate('click');
+		expect(wrapper.find('ul li div.overlay').at(2).length).toEqual(1);
+	});
+
+	it('should change loading to true on click of ul li overlay', () => {
+		const wrapper = mount(
+			<AvatarSelector
+		 		currentAvatar={state.currentAvatar}
+		 		avatars={state.avatars}
+		 		hidden={state.hidden}
+		 		firstLoad={state.firstLoad} />)
+		wrapper.find('.current-avatar-btn').simulate('click');
+		wrapper.find('ul li div.overlay').at(2).simulate('click');
+		expect(wrapper.state('loading')).toEqual(true);
+	});
+
+	it('should change class on ul li div.overlay to partial-border rotate', () => {
+		const wrapper = mount(
+			<AvatarSelector
+		 		currentAvatar={state.currentAvatar}
+		 		avatars={state.avatars}
+		 		hidden={state.hidden}
+		 		firstLoad={state.firstLoad} />)
+		wrapper.find('.current-avatar-btn').simulate('click');
+		wrapper.find('ul li div.overlay').at(4).simulate('click');
+		expect(wrapper.find('ul li div.overlay').at(4).hasClass('partial-border rotate'))
 	});
 });

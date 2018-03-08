@@ -12,4 +12,5 @@ ReactDOM.render(
         { "src": "avatar4.png", "label": "Avatar 4", "id": 4 },
         { "src": "avatar5.png", "label": "Avatar 5", "id": 5 },
         { "src": "avatar6.png", "label": "Avatar 6", "id": 6 }
-     ]} />, document.getElementById('root'));
+     ]} />,
+     document.getElementById('root'));
