@@ -76,4 +76,21 @@ describe('<AvatarSelector />', () => {
 		wrapper.find('ul li div.overlay').at(4).simulate('click');
 		expect(wrapper.find('ul li div.overlay').at(4).hasClass('partial-border rotate'))
 	});
+
+
+	it('should change the currentAvatar after timeout', (done) => {
+		const wrapper = mount(
+			<AvatarSelector
+		 		currentAvatar={state.currentAvatar}
+		 		avatars={state.avatars}
+		 		hidden={state.hidden}
+		 		firstLoad={state.firstLoad} />)
+		wrapper.find('.current-avatar-btn').simulate('click');
+		wrapper.find('ul li div.overlay').at(4).simulate('click');
+		setTimeout(() => {
+			expect(wrapper.state('currentAvatar')).toEqual({"src": "avatar5.png", "label": "Avatar 5", "id": 5})
+			console.log(wrapper.state('currentAvatar'))
+			done();
+		}, 1100)
+	});
 });
