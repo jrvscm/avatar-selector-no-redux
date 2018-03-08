@@ -89,7 +89,6 @@ describe('<AvatarSelector />', () => {
 		wrapper.find('ul li div.overlay').at(4).simulate('click');
 		setTimeout(() => {
 			expect(wrapper.state('currentAvatar')).toEqual({"src": "avatar5.png", "label": "Avatar 5", "id": 5})
-			console.log(wrapper.state('currentAvatar'))
 			done();
 		}, 1100)
 	});
